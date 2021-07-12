@@ -1,0 +1,88 @@
+steps
+
+1)Introduction to laravel (Need to know every file usage).
+
+2)Local environment setup (Files that need to be setup for )
+
+3)Routes types:-
+ 
+ 	Basic Routing
+	Route parameters
+	Named Routes
+
+4)Controllers
+	Routing Controllers
+	Passing data
+	Resources and Controllers
+
+5) Views
+
+	Creating views and custom method
+	Passing data to views
+
+6) Database migration
+	
+	Environment configurations
+	Migration
+	Creating migrations and dropping them
+	Adding columns to existing tables using migrations
+	how to update name of a existing table 
+
+7) Sql Queries
+
+	Inserting data
+	Reading Data
+	Updating Data
+	Deleting Data
+
+8) Database Eloquent/ORM
+
+	Reading Data
+	Reading / Finding with Constraints
+	getting data with id or names or etc
+	Inserting / Saving Data
+	Updating with Eloquent
+	Deleting Data
+	Soft Deleting / Trashing
+	Retrieving deleted / trashed records
+	Restoring deleted / trashed records
+	Deleting a record permanently
+
+9) Database Eloquent Relationships
+		one to one relationships
+		the inverse relationship
+
+10)What is the Database tinker ?
+
+11)Eloquent one to one relationship CRUD
+		In Eloquent relations CRUD need to know all topics
+
+12)Forms and Validation
+
+13)Forms - uplaoding files
+
+14)Custom login and register Forms*
+
+15)Middle-Security/Protection**
+	1.A more practical way to use middlewares 1 - roles, migration and relations setup
+
+16)Laravel Sessions
+
+17)Sending Email/Api**
+
+18)Front End
+
+19)Data Seeding
+
+20)Creating a Permisssions & Roles
+
+21)Posts,Categories,Media & Comments 
+
+22)Versions Upgrade
+
+23)How to integrate locally developed site to live server
+
+24)Payment gateways
+
+25) Exception handling
+

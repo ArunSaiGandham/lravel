@@ -1,0 +1,155 @@
+----for deleteing row in data base 
+
+ $depData = \App\Models\AboutUs::find(1)->delete();
+
+ $depData = \App\Models\AboutUs::where('title','aboutus')->delete();
+
+
+---Retrving data
+
+
+$depData = \App\Models\AboutUs::find(1);
+
+
+
+----update
+
+ $depData = \App\Models\AboutUs::find(1);
+        $depData->title=$request->title;
+        $depData->description=$request->description;
+        // $depData->img=$request->profile;
+
+
+
+        // $data = $request->input();
+
+        // $path= 'public/images';
+        if ($request->hasFile('profile')) {
+           // echo "strin";
+            $destinationPath = 'images';
+            $files = $request->file('profile'); // will get all files
+        
+            
+                $file_name = time()."_".$files->getClientOriginalName(); //Get file original name
+                $files->move($destinationPath , $file_name); // move files to destination folder
+            
+        }
+      $fileName = $destinationPath .'/' . $file_name;
+    unlink($depData->img);
+      $depData->img=$fileName;
+
+
+        if($depData->save());
+        {
+            return view('adminDashboard.aboutus')->with('depData',$depData);
+        }
+
+
+
+
+
+----insert
+
+
+ $depData = new \App\Models\AboutUs;
+        $depData->title=$request->title;
+        $depData->description=$request->description;
+        // $depData->img=$request->profile;
+
+
+
+        // $data = $request->input();
+
+        // $path= 'public/images';
+        if ($request->hasFile('profile')) {
+           // echo "strin";
+            $destinationPath = 'images';
+            $files = $request->file('profile'); // will get all files
+        
+            
+                $file_name = time()."_".$files->getClientOriginalName(); //Get file original name
+                $files->move($destinationPath , $file_name); // move files to destination folder
+            
+        }
+      $fileName = $destinationPath .'/' . $file_name;
+    unlink($depData->img);
+      $depData->img=$fileName;
+
+
+        if($depData->save());
+        {
+            return view('adminDashboard.aboutus')->with('depData',$depData);
+        }
+    }
+
+
+
+----remove image from folder
+
+ unlink($depData->img);
+
+
+
+--upload image to folder
+
+if ($request->hasFile('profile')) {
+           // echo "strin";
+            $destinationPath = 'images';
+            $files = $request->file('profile'); // will get all files
+        
+            
+                $file_name = time()."_".$files->getClientOriginalName(); //Get file original name
+                $files->move($destinationPath , $file_name); // move files to destination folder
+            
+        }
+      $fileName = $destinationPath .'/' . $file_name;
+    unlink($depData->img);
+      $depData->img=$fileName;
+
+
+
+---exact url path
+
+href="{{url('add.manegment')}}"
+
+
+---get all media / images sfrom a folder
+
+          <?php
+$files = glob("images/*.*");
+for ($i = 0; $i < count($files); $i++) {
+    $image = $files[$i];
+    echo basename($image) . "<br />"; // show only image name if you want to show full path then use this code // echo $image."<br />";
+    echo '<img src="' . $image . '" alt="Random image" />' . "<br /><br />";
+
+}
+
+?>
+   
+
+---date structer folder image save in folder and data base
+
+
+$crnt_time=date("Y-m-d_h-i-s", time());
+$xplode_val = explode('-',$crnt_time);
+ $day_val= explode('_',$xplode_val[2]);
+ 
+           
+            $destinationPath = 'images/'.$xplode_val[0]."/".$xplode_val[1]."/".$day_val[0];
+            $files = $request->file('profile'); // will get all files
+        
+            
+                $file_name = $files->getClientOriginalName(); //Get file original name
+                $files->move($destinationPath , $file_name); // move files to destination folder
+            
+        }
+      $fileName = $destinationPath .'/' . $file_name;
+    unlink($depData->img);
+      $depData->img=$fileName;
+
+
+        if($depData->save());
+        {
+            return view('adminDashboard.aboutus')->with('depData',$depData);
+        }
+
